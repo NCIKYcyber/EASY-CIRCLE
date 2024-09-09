@@ -1,0 +1,23 @@
+void Start ()
+{
+UI.instance. UpdateHealth(health);
+}
+void Update ()
+{
+Vector2 dir = Vector2.zero;
+if (Input.GetKeyDown (KeyCode.W))
+dir Vector2.up;
+else if (Input.GetKeyDown(KeyCode.S))
+dir = Vector2.down;
+else if (Input.GetKeyDown (KeyCode.A))
+dir = Vector2.left;
+else if (Input.GetKeyDown(KeyCode.D))
+dir = Vector2.right;
+RaycastHit2D hit = Physics2D.Raycast (transform.position, dir, 1.0f, 1 << 8);
+if(hit.collider == null)
+transform.position += new Vector3(dir.x, dir.y, 0);
+public void TakeDamage (int damage ToTake)
+{
+health - damage ToTake;
+UI.instance. UpdateHealth(health);
+}
